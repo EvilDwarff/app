@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 
 export default function RegisterPage() {
-    const [formData, setFormData] = useState({ login: '', password: '', full_name: '', phone: '', email: '', id_role: 1 });
+    const [formData, setFormData] = useState({type: 'register', login: '', password: '', full_name: '', phone: '', email: '', id_role: 1 });
     const router = useRouter();
 
     const handleChange = (e) => {

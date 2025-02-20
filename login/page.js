@@ -10,16 +10,16 @@ export default function LoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch('/api/auth', {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ login, password })
+            body: JSON.stringify({type: 'login', login, password })
         });
         const data = await response.json();
         if (data.token) {
             localStorage.setItem('token', data.token);
             router.push('/orders');
         } else {
-            alert('Login failed');
+            alert('Login failed: ' + data.message);
         }
     };
 
